@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { background: #0C0C0C; }
+body { color: #D7E2EA; word-break: keep-all; -webkit-font-smoothing: antialiased; }
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 이미지 자리 표시 (src/images.ts 값이 비어 있을 때) */
+.ph {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px;
+  background: radial-gradient(120% 120% at 20% 10%, #2a2d33 0%, #15171b 55%, #0f1012 100%);
+  color: #8d99a6; font-size: 14px; letter-spacing: .04em;
+}
+.ph small { display: block; opacity: .6; font-size: 11px; margin-top: 4px; }
+
+/* About 장식 오브 (서드파티 이미지 대신 CSS) */
+.orb { border-radius: 50%; aspect-ratio: 1; }
+.orb.a { width: 120px; background: radial-gradient(circle at 30% 30%, #f4f7fb 0%, #b9c6d2 35%, #4c5663 75%, #1c2026 100%); box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+.orb.b { width: 100px; border-radius: 28%; transform: rotate(18deg); background: linear-gradient(145deg, #B600A8 0%, #7621B0 55%, #2b0a3d 100%); box-shadow: 0 24px 50px rgba(118,33,176,.35); }
+.orb.c { width: 120px; border-radius: 26px; transform: rotate(-12deg); background: linear-gradient(160deg, #ffb36b 0%, #BE4C00 60%, #5a2400 100%); box-shadow: 0 24px 50px rgba(190,76,0,.3); }
+.orb.d { width: 130px; background: conic-gradient(from 200deg, #646973, #BBCCD7, #646973, #2a2e35, #646973); box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+@media (min-width: 640px) { .orb.a, .orb.c { width: 160px; } .orb.b { width: 140px; } .orb.d { width: 170px; } }
+@media (min-width: 768px) { .orb.a, .orb.c { width: 210px; } .orb.b { width: 180px; } .orb.d { width: 220px; } }
+
+/* 프로젝트 카드 이미지 높이 */
+.img-a { height: clamp(130px, 16vw, 230px); }
+.img-b { height: clamp(160px, 22vw, 340px); }
+.img-c { height: 100%; min-height: calc(clamp(130px, 16vw, 230px) + clamp(160px, 22vw, 340px) + 12px); }
